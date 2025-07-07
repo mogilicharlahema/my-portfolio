@@ -1,0 +1,427 @@
+
+
+:root {
+  --primary-purple: #a855f7;
+  --light-purple-bg: #f3e8ff;
+  --dark-purple-bg: #2a2138;
+  --text-dark: #1f2937;
+  --text-light: #f9fafb;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+     --main-font: 'Montserrat', sans-serif;
+    --logo-font: 'Playfair Display', serif;
+}
+
+* {
+
+  box-sizing: border-box; 
+}
+
+.about-page-wrapper {
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  min-height: 100vh;
+  position: relative; 
+  background-image: url("../../images/homepic.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero-image-container img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.about-hero-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  padding: 2rem 4rem;
+  color: var(--text-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.about-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.about-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.about-logo img {
+  height: 32px;
+  width: 32px;
+}
+.about-logo span{
+  
+    font-family: var(--logo-font);
+    font-size: 1.5rem;
+}
+
+
+.about-nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+     font-family: var(--logo-font);
+}
+
+.about-nav-links a:hover {
+  border-bottom-color: var(--primary-purple);
+}
+
+.about-nav-links a.active {
+  border-bottom-color: var(--primary-purple);
+  font-weight: 500;
+}
+
+
+.about-hero-text {
+
+  z-index: 5;
+}
+
+.about-hero-text h1 {
+  font-size: 3.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  max-width: 450px;
+  line-height: 1.6;
+  color: #dddddd;
+}
+
+.hero-background-text {
+  position: absolute;
+  bottom: 8%;
+  left: 4rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.08);
+  line-height: 1.2;
+  z-index: 1;
+  user-select: none;
+}
+
+.about-main-content {
+  padding: 5rem 2rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.about-tagline {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.about-tagline h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.about-tagline p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.tag-button {
+  display: inline-block;
+  background-color: var(--light-purple-bg);
+  color: var(--primary-purple);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--primary-purple);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.tag-button:hover {
+  background-color: var(--primary-purple);
+  color: white;
+}
+
+.about-tagline .tag-button {
+  margin-top: 1.5rem;
+  padding: 10px 25px;
+}
+
+.developer-philosophy,
+.timeline-section {
+  margin-bottom: 6rem;
+}
+
+.developer-philosophy h3,
+.timeline-section h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.developer-philosophy > p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 35px;
+  padding-bottom: 1.5rem;
+  border-left: 2px solid var(--border-color);
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -9px;
+  top: 8px;
+  height: 16px;
+  width: 16px;
+  background-color: var(--primary-purple);
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.timeline-content .date-tag {
+  padding: 6px 16px;
+  font-size: 0.9rem;
+}
+
+.timeline-role {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.timeline-description {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-nav {
+    padding: 1.5rem;
+  }
+
+  .about-logo span {
+    display: none;
+  }
+
+  .about-hero-content-container {
+    padding: 2rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .about-hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-background-text {
+    display: none;
+  }
+}
+/* --- CONTINUATION OF YOUR CSS FILE --- */
+
+.timeline-description {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Stops the timeline's vertical line from extending past the final item */
+.timeline-section .timeline-item:last-of-type {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+/* --- NEW STYLES FOR SKILLS SECTION --- */
+
+.skills-section {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.skills-main-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tech-toolbox-tag {
+  margin-bottom: 3rem;
+  /* Making it non-interactive as it's just a label */
+  cursor: default;
+  pointer-events: none; 
+}
+
+.skill-category-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: var(--light-purple-bg);
+  border-radius: 12px;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+
+.skill-card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 70px;
+}
+
+/* Specific adjustments for certain logos to look balanced */
+.skill-card img[alt="Express.js Logo"] {
+  max-height: 80px; 
+}
+.skill-card img[alt*="Netlify"], .skill-card img[alt*="Vercel"] {
+  max-width: 90px;
+}
+
+
+.soft-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* --- RESPONSIVE STYLES CONTINUED --- */
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-nav {
+    padding: 1.5rem;
+  }
+
+  .about-logo span {
+    display: none;
+  }
+
+  .about-hero-content-container {
+    padding: 2rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .about-hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-background-text {
+    display: none;
+  }
+
+  /* Adjusting new sections for smaller screens */
+  .developer-philosophy h3,
+  .timeline-section h3,
+  .skills-main-title {
+    font-size: 1.75rem;
+  }
+  
+  .skill-card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skill-card img {
+    max-height: 55px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-main-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .skills-grid {
+    gap: 0.75rem;
+  }
+
+  /* Allows cards to fit 3-across on small mobile screens */
+  .skill-card {
+    flex-basis: calc(33.333% - 0.5rem);
+    width: auto; /* Override fixed width */
+    height: 100px;
+    padding: 0.75rem;
+  }
+
+  .soft-skills-tags .tag-button {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+}

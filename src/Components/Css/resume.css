@@ -1,0 +1,192 @@
+
+
+.resume-page-container {
+    background-image: url("../../images/homepic.png"); 
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.page-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 10;      
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: var(--logo-font);
+}
+
+.logo {
+    height: 40px;
+}
+
+.logo-link {
+    text-decoration: none; 
+    color: inherit; 
+    display: flex;
+    align-items: center;
+   gap:18px;
+}
+
+/* This targets the <a> tags rendered by NavLink */
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 18px;
+    padding-bottom: 5px;
+    font-family: var(--logo-font);
+    cursor: pointer;
+}
+
+/* NavLink automatically adds the 'active' class */
+.main-nav a.active {
+    border-bottom: 2px solid #ffffff;
+}
+
+.page-main-content {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Lower z-index than the header */
+}
+
+.resume-intro-section {
+    position: relative;
+    padding: 2rem 0 4rem;
+    top: -80px; /* This is fine now that the header has a z-index */
+}
+
+.resume-intro-section h1 {
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.resume-intro-section p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-top: 0.5rem;
+}
+
+.background-text-container {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.1;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.background-text-top,
+.background-text-bottom {
+    font-size: 6rem;
+    display: block;
+}
+
+.resume-image-wrapper {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.resume-image {
+   width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    margin-top: 50px
+}
+
+.download-button-container {
+    padding: 3rem 0 1rem;
+}
+
+.download-btn {
+    background: linear-gradient(90deg, #A054F2, #6C3CE7);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(110, 60, 231, 0.4);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .background-text-top,
+    .background-text-bottom {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .resume-page-container {
+        padding: 1rem;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .main-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .main-nav a {
+        margin-left: 0;
+    }
+
+    .resume-intro-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .resume-intro-section p {
+        font-size: 1rem;
+    }
+
+    .background-text-top,
+    .background-text-bottom {
+        font-size: 3rem;
+    }
+
+    .resume-image {
+        border-radius: 15px;
+    }
+}
