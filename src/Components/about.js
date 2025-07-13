@@ -16,6 +16,9 @@ import mongoLogo from '../images/mongo.png';
 import vercelLogo from '../images/vercel.png';
 import githubLogo from '../images/git.png';
 import netlifyLogo from '../images/netlify.png';
+import vscode from "../images/vs code.png";
+import webstorm from "../images/WebStorm.svg";
+import postman from "../images/postman-icon.svg";
 import FooterSection from './footer';
 
 
@@ -140,8 +143,9 @@ const AboutPage = () => {
               <div className="skill-card"><img src={nodeLogo} alt="Node.js Logo" /></div>
               <div className="skill-card"><img src={expressLogo} alt="Express.js Logo" /></div>
               <div className="skill-card"><img src={mongoLogo} alt="MongoDB Logo" /></div>
+                 <div className="skill-card"><img src={postman} alt="MongoDB Logo" /></div>
             </div>
-          </div>
+          </div> 
 
           <div className="skill-category">
             <h4 className="skill-category-title">Tools & Deployment:</h4>
@@ -149,6 +153,9 @@ const AboutPage = () => {
               <div className="skill-card"><img src={vercelLogo} alt="Vercel Logo" /></div>
               <div className="skill-card"><img src={githubLogo} alt="GitHub Logo" /></div>
               <div className="skill-card"><img src={netlifyLogo} alt="Netlify Logo" /></div>
+                <div className="skill-card"><img src={vscode} alt="Netlify Logo" /></div>
+                  <div className="skill-card"><img src={webstorm} alt="Netlify Logo" /></div>
+               
             </div>
           </div>
 
