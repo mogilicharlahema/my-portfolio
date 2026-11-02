@@ -1,0 +1,265 @@
+.work-page {
+    background-color: #1a1624;
+    background-image: url("../../images/homepic.png");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem 3%;
+    box-sizing: border-box;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.work-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.work-logo img {
+    height: 40px;
+}
+
+.work-logo span {
+    font-family: var(--logo-font);
+    font-size: 1.3rem;
+}
+
+.work-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.work-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--logo-font);
+    font-size: 18px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.work-nav a:hover,
+.work-nav a.active {
+    border-bottom-color: #a855f7;
+}
+
+.work-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.work-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.work-intro h1 {
+    font-size: 2.6rem;
+    margin: 0 0 0.5rem;
+}
+
+.work-intro p {
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.work-company {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.work-company h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.work-role {
+    margin: 0.2rem 0 0;
+    color: #d3cde8;
+}
+
+.work-period {
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    background: #7000ff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.work-section-title {
+    margin: 2.5rem 0 1rem;
+    font-size: 1.3rem;
+    color: #c4b5fd;
+}
+
+.work-card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.work-card {
+    padding: 1.6rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.work-card-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c4b5fd;
+}
+
+.work-card-title {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.work-card-subtitle {
+    margin: 0.2rem 0 0;
+    color: #d3cde8;
+}
+
+.work-points {
+    margin: 1.1rem 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: #e5e1f0;
+    line-height: 1.55;
+}
+
+.work-points li::marker {
+    color: #a855f7;
+}
+
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.work-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    border: 1px dashed #bca1ff;
+    background: rgba(234, 223, 255, 0.12);
+    color: #eadfff;
+    font-size: 0.85rem;
+}
+
+.work-toolbox {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.work-tool-group h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.05rem;
+    color: #e5e1f0;
+}
+
+.work-tool-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.work-tool-card {
+    width: 88px;
+    height: 88px;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #f3e8ff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(168, 85, 247, 0.35);
+}
+
+.work-tool-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.work-earlier {
+    margin-top: 3rem;
+    text-align: center;
+    color: #d3cde8;
+}
+
+.work-earlier-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #a054f2, #6c3ce7);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-earlier-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(110, 60, 231, 0.4);
+}
+
+@media (min-width: 900px) {
+    .work-card-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .work-intro h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-nav {
+        gap: 1rem;
+    }
+
+    .work-nav a {
+        font-size: 16px;
+    }
+}

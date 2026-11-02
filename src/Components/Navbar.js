@@ -25,9 +25,10 @@ const HeroSection = () => {
 
                 {/* Step 3: Add the conditional class to the nav element */}
                 <nav className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
-                    <a href="#work" onClick={toggleMenu}>Work</a>
+                    <Link to="/work" onClick={toggleMenu}>Work</Link>
                     <Link to="/about" onClick={toggleMenu}>About me</Link>
                     <Link to="/resume" onClick={toggleMenu}>Resume</Link>
+                    <Link to="/contact" onClick={toggleMenu}>Contact me</Link>
                 </nav>
 
                 {/* Step 3: Add the onClick handler to the hamburger menu */}

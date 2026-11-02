@@ -1,39 +1,246 @@
+/* ==========================================================
+   Shared section layout + tag
+   ========================================================== */
+.current-work-section,
+.other-projects-section,
 .internship-section-container {
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 20px;
     box-sizing: border-box;
-
 }
 
+.current-work-wrapper,
+.other-projects-container,
 .internship-content-wrapper {
-    position: relative;
     max-width: 1100px;
     width: 100%;
+    margin: 0 auto;
 }
 
-.internship-tag-container {
-    position: absolute;
-    top: -20px;
-    left: 0;
-    z-index: 2;
-}
-
+.current-work-tag,
+.other-projects-tag,
 .internship-tag {
+    display: inline-block;
     background-color: #EADFFF;
     color: #5E33B0;
     border: 2px dashed #BCA1FF;
-    padding: 10px 50px;
+    padding: 10px 30px;
     border-radius: 14px;
-    font-size:25px;
+    font-family: inherit;
+    font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.3;
+    cursor: default;
+}
+
+.internship-tag-container,
+.section-header {
+    margin: 0 0 24px;
+    text-align: left;
+}
+
+/* ==========================================================
+   Currently Working (home summary)
+   ========================================================== */
+.current-work-section {
+    padding-top: 60px;
+}
+
+.current-work-tag {
+    margin-bottom: 24px;
+}
+
+.current-work-card {
+    background-image: url("../../images/homepic.png");
+    background-size: cover;
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 40px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.current-work-company {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
+.current-work-role {
+    font-size: 1.1rem;
+    color: #D3CDE8;
+    margin: 0;
+}
+
+.current-work-period {
+    font-size: 0.95rem;
+    color: #BCA1FF;
+    margin: 4px 0 24px;
+}
+
+.current-work-button {
+    align-self: auto;
+}
+
+.current-work-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.current-work-item {
+    padding-left: 16px;
+    border-left: 3px solid #7000FF;
+}
+
+.current-work-item h3 {
+    margin: 0 0 4px;
+    font-size: 1.2rem;
+}
+
+.current-work-item p {
+    margin: 0;
+    color: #D3CDE8;
+    line-height: 1.5;
+}
+
+/* ==========================================================
+   Internship Projects (website cards)
+   ========================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.project-card {
+    background-image: url("../../images/homepic.png");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card::before {
+    content: '';
     position: absolute;
-    top: -82px;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle at top right, rgba(94, 51, 176, 0.25) 0%, rgba(94, 51, 176, 0) 60%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    padding-right: 1rem;
+}
+
+.card-logo-wrapper {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-logo {
+    max-width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.card-description {
+    color: #d1d1d1;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.card-button {
+    background-color: #7000FF;
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+.card-button:hover {
+    background-color: #6a32cc;
+    box-shadow: 0 0 20px #6a32cc;
+}
+
+.image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+}
+
+.feature-image {
+    max-width: 100%;
+    max-height: 240px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ==========================================================
+   Internship (Survey Heart)
+   ========================================================== */
+.internship-section-container {
+    padding-bottom: 80px;
 }
 
 .internship-card {
-    background-image: url("../../images//homepic.png");
+    background-image: url("../../images/homepic.png");
     color: #ffffff;
     border-radius: 24px;
     padding: 50px;
@@ -43,6 +250,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .internship-card::before {
@@ -130,163 +338,31 @@
     margin: 0;
 }
 
-
-
-
-.other-projects-section {
-    padding-bottom: 80px;
-}
-
-.other-projects-container {
-    max-width: 1100px;
-    width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
-}
-
-.section-header {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.other-projects-tag {
-    background-color: #e6dfff;
-    color: #5e33b0;
-    border: 2px dashed #bca1ff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 14px;
-    font-size:25px;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    top: 40px;
-    left: -35%;
-    z-index: 1;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5.5rem;
-    align-items: center;
-    margin-top: 80px;
-}
-
-.project-card {
-    background-image: url("../../images/homepic.png");
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    padding: 2rem;
-    border-radius: 25px;
-    position: relative;
-    overflow: hidden;
-    height: 300px;
-    width: 100%;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    display: flex;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250%;
-    height: 250%;
-    background: radial-gradient(circle at top right, rgba(94, 51, 176, 0.25) 0%, rgba(94, 51, 176, 0) 60%);
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-.card-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-}
-
-.card-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0;
-    padding-right: 1rem;
-}
-
-.card-logo-wrapper {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.card-logo {
-    max-width: 65px;
-    max-height: 65px;
-    object-fit: contain;
-}
-
-.card-description {
-    color: #d1d1d1;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    /* Adjusted for better readability */
-    margin: 0 0 1.5rem 0;
-    flex-grow: 1;
-}
-
-.card-button {
-    background-color: #7000FF;
-    color: #ffffff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: all 0.3s ease;
-    align-self: flex-end;
-}
-
-.card-button:hover {
-    background-color: #6a32cc;
-    box-shadow: 0 0 20px #6a32cc;
-}
-
-.image-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.feature-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 400px;
-}
-
-
-
-
+/* ==========================================================
+   Responsive
+   ========================================================== */
 @media (max-width: 992px) {
+    .current-work-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
 
-    /* --- Survey Heart Section --- */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .project-card {
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-column {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
     .internship-card {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -296,40 +372,14 @@
     .internship-title {
         font-size: 2.5rem;
     }
-
-    /* --- Other Projects Section --- */
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        height: auto;
-        min-height: 280px;
-        max-width: 550px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .image-column {
-        order: 4;
-        /* Places image at the bottom of the column */
-        max-width: 350px;
-        margin: 0 auto;
-    }
 }
 
 @media (max-width: 768px) {
-
-    /* --- Survey Heart Section --- */
-    .internship-section-container {
-        padding: 80px 15px 40px 15px;
-    }
-
-    .internship-tag-container {
-        left: 50%;
-        transform: translateX(-50%);
-        top: -45px;
-        white-space: nowrap;
+    .current-work-tag,
+    .other-projects-tag,
+    .internship-tag {
+        font-size: 1.1rem;
+        padding: 8px 20px;
     }
 
     .internship-card {
@@ -351,14 +401,6 @@
         padding-top: 0;
     }
 
-    /* --- Other Projects Section --- */
-    .other-projects-tag {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.95rem;
-        left: 0;
-        transform: none;
-    }
-
     .project-card {
         padding: 1.5rem;
     }
@@ -370,19 +412,18 @@
     .card-description {
         font-size: 1rem;
     }
-
-    .card-button {
-        padding: 0.7rem 1.6rem;
-        font-size: 0.95rem;
-    }
 }
 
 @media (max-width: 480px) {
+    .current-work-section,
+    .other-projects-section,
+    .internship-section-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-    /* --- Survey Heart Section --- */
-    .internship-tag {
-        padding: 8px 20px;
-        font-size: 0.9rem;
+    .current-work-company {
+        font-size: 1.7rem;
     }
 
     .internship-card {
@@ -403,29 +444,6 @@
 
     .feature-description {
         font-size: 0.95rem;
-    }
-
-    /* --- Other Projects Section --- */
-    .other-projects-container {
-        padding: 0 10px;
-    }
-
-    .section-header {
-        margin-bottom: 1.5rem;
-    }
-
-    .other-projects-tag {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 20px;
-    }
-
-    .projects-grid {
-        margin-top: 40px;
-    }
-
-    .card-header {
-        align-items: center;
     }
 
     .card-title {

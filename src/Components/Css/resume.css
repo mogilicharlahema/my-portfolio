@@ -14,7 +14,6 @@
 
 .page-header {
     width: 100%;
-    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,6 +119,11 @@
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     margin-top: 50px
+}
+
+/* second page sits below the first with a small gap */
+.resume-image + .resume-image {
+    margin-top: 1.5rem;
 }
 
 .download-button-container {

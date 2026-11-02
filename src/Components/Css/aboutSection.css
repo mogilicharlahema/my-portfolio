@@ -55,7 +55,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,15 +184,311 @@
 }
 
 .developer-philosophy,
-.timeline-section {
+.timeline-section,
+.about-section {
   margin-bottom: 6rem;
 }
 
+.about-section h3,
 .developer-philosophy h3,
 .timeline-section h3 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
+}
+
+.about-story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+.about-hint {
+  margin: -0.75rem 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ---- Clickable stepper (journey / roadmap) ---- */
+.stepper-track {
+  position: relative;
+  display: flex;
+}
+
+.stepper-line {
+  position: absolute;
+  top: 18px;
+  left: calc(50% / var(--n));
+  right: calc(50% / var(--n));
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--border-color);
+}
+
+.stepper-line-fill {
+  height: 100%;
+  width: calc(100% * var(--p));
+  border-radius: 2px;
+  background-color: var(--primary-purple);
+  transition: width 0.4s ease;
+}
+
+.stepper-step {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.stepper-dot {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  background-color: #fff;
+  color: var(--text-muted);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.stepper-step:hover .stepper-dot {
+  border-color: var(--primary-purple);
+}
+
+.stepper-step.is-done .stepper-dot {
+  border-color: var(--primary-purple);
+  color: var(--primary-purple);
+}
+
+.stepper-step.is-active .stepper-dot {
+  background-color: var(--primary-purple);
+  border-color: var(--primary-purple);
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.2);
+}
+
+.stepper-step:focus-visible .stepper-dot {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 3px;
+}
+
+.stepper-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.stepper-step.is-active .stepper-label {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.stepper-panel {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background-color: var(--light-purple-bg);
+  border: 1px solid #e0cffc;
+  animation: stepper-fade 0.35s ease;
+}
+
+.stepper-when {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-purple);
+}
+
+.stepper-panel h4 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: 1.3rem;
+}
+
+.stepper-panel p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.stepper-meta {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+@keyframes stepper-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Expanding cards (Why Frontend) ---- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.why-card {
+  border: 1px solid #e0cffc;
+  border-radius: 16px;
+  background-color: #fff;
+  overflow: hidden;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card.is-open {
+  background-color: var(--light-purple-bg);
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.15);
+}
+
+.why-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.why-num {
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--primary-purple);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.why-icon {
+  margin-left: auto;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--primary-purple);
+  transition: transform 0.3s ease;
+}
+
+.why-card.is-open .why-icon {
+  transform: rotate(45deg);
+}
+
+.why-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.why-card.is-open .why-body {
+  grid-template-rows: 1fr;
+}
+
+.why-body > div {
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.why-card.is-open .why-body > div {
+  visibility: visible;
+}
+
+.why-body p {
+  margin: 0;
+  padding: 0 1.2rem 1.2rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper-line {
+    top: 16px;
+  }
+
+  .stepper-dot {
+    width: 34px;
+    height: 34px;
+  }
+
+  .stepper-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepper-panel {
+    animation: none;
+  }
+
+  .stepper-line-fill,
+  .stepper-dot,
+  .why-body,
+  .why-icon {
+    transition: none;
+  }
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.fact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.2rem;
+  border-radius: 16px;
+  background-color: var(--light-purple-bg);
+  border: 1px solid #e0cffc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+
+.fact-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-purple);
+}
+
+.fact-value {
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 .philosophy-tags {

@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Components/Css/resume.css';
 import logoicon from "../images/iconlogo.png";
-import resume from '../images/resume.jpg';
+import resumePage1 from '../images/resume-page1.jpg';
+import resumePage2 from '../images/resume-page2.jpg';
 import { NavLink } from 'react-router-dom'; 
 import resumePdf from '../HemaCV.pdf';
 import FooterSection from './footer';
@@ -20,10 +21,11 @@ const ResumeSection = () => {
                    
                     <nav className="main-nav">
                        
-                        <NavLink to="/#work">Work</NavLink>
+                        <NavLink to="/work">Work</NavLink>
                         <NavLink to="/about">About me</NavLink>
                       
                         <NavLink to="/resume">Resume</NavLink>
+                        <NavLink to="/contact">Contact me</NavLink>
                     </nav>
                 </header>
 
@@ -38,7 +40,8 @@ const ResumeSection = () => {
                     </div>
 
                     <div className="resume-image-wrapper">
-                        <img src={resume} alt="My Resume" className="resume-image" />
+                        <img src={resumePage1} alt="My Resume, page 1 of 2" className="resume-image" />
+                        <img src={resumePage2} alt="My Resume, page 2 of 2" className="resume-image" />
                     </div>
                 </main>
 

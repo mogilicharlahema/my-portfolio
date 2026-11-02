@@ -23,9 +23,10 @@ const FooterSection = () => {
                 <div className="footer-section links">
                     <h3 className="footer-heading">Site Map</h3>
                     <ul>
-                        <li>  <Link to="/#work">Work</Link></li>
+                        <li>  <Link to="/work">Work</Link></li>
                         <li><Link to="/about">About me</Link></li>
                         <li> <Link to="/resume">Resume</Link></li>
+                        <li><Link to="/contact">Contact me</Link></li>
                     </ul>
                 </div>
 

@@ -3,24 +3,90 @@ import { Link } from 'react-router-dom';
 import '../Components/Css/aboutSection.css';
 import hemaPhoto from '../images/hema.png';
 import hLogo from '../images/iconlogo.png';
-
-
-import htmlLogo from '../images/html.png';
-import cssLogo from '../images/css.png';
-import jsLogo from '../images/js.png';
-import reactLogo from '../images/react.png';
-import tailwindLogo from '../images/tailwind.png';
-import nodeLogo from '../images/nodejs.png';
-import expressLogo from '../images/express.png';
-import mongoLogo from '../images/mongo.png';
-import vercelLogo from '../images/vercel.png';
-import githubLogo from '../images/git.png';
-import netlifyLogo from '../images/netlify.png';
-import vscode from "../images/vs code.png";
-import webstorm from "../images/WebStorm.svg";
-import postman from "../images/postman-icon.svg";
 import FooterSection from './footer';
+import { Stepper, ReasonCards } from './aboutInteractive';
 
+const quickFacts = [
+  { label: 'Location', value: 'Eluru, India' },
+  { label: 'Languages', value: 'Telugu · Hindi · English' },
+  { label: 'Education', value: 'B.Tech (Agriculture)' },
+  { label: 'Certified in', value: 'Full Web Development' },
+];
+
+const journey = [
+  {
+    label: 'Diploma',
+    when: '2017 – 2020',
+    title: 'Diploma in Agricultural Engineering',
+    text: 'My journey began in agriculture. In my Diploma in Agricultural Engineering I studied the engineering side of farming, learning how land, water, machinery and crops work together to produce food.',
+    meta: 'Palakol · CGPA 9.0',
+  },
+  {
+    label: 'B.Tech',
+    when: '2020 – 2023',
+    title: 'B.Tech in Agriculture',
+    text: 'I continued with a B.Tech in Agriculture and went deeper into agricultural science and technology. Towards the end of my degree, I became curious about IT and how software is built.',
+    meta: 'Divili, Kakinada · CGPA 7.8',
+  },
+  {
+    label: 'The spark',
+    when: 'The turning point',
+    title: 'Discovering IT and coding',
+    text: 'That curiosity turned into passion. I found IT and coding, and building something with logic and seeing it come alive on screen was a feeling I wanted to chase.',
+  },
+  {
+    label: 'Course',
+    when: 'Learning phase',
+    title: 'Complete Web Development Course',
+    text: 'I joined an institute, learned web development from the ground up and earned my course certificate.',
+  },
+  {
+    label: 'Career',
+    when: '2024 – Present',
+    title: 'Building real products',
+    text: 'From my internship at Survey Heart and my work at LKR Technology to my current role at B2Y Infy Solutions, I now build interfaces that real users depend on.',
+  },
+];
+
+const whyFrontend = [
+  {
+    title: 'I see my work grow',
+    text: 'In agriculture you plant a seed and watch it grow. In frontend, I write code and watch it turn into a screen people use, and I see the result right away.',
+  },
+  {
+    title: 'Logic meets design',
+    text: 'I enjoy the mix of problem solving and visual detail: clean logic underneath, a smooth and good-looking experience on top.',
+  },
+  {
+    title: 'It is built for people',
+    text: 'Every button, form and layout is something a real person touches. Making it clear and easy to use is what motivates me.',
+  },
+  {
+    title: 'There is always something new',
+    text: 'Frameworks, tools and browsers keep evolving, and that suits my love of learning new things.',
+  },
+];
+
+const whatsNext = [
+  {
+    label: 'Now',
+    when: 'Right now',
+    title: 'Growing at B2Y Infy Solutions',
+    text: 'Building ERP/CRM, e-commerce and real estate interfaces with React, and learning how real products are shaped by real users.',
+  },
+  {
+    label: 'Next',
+    when: 'Next up',
+    title: 'Going full-stack',
+    text: 'Going deeper into React and strengthening Node.js, Express and MongoDB so I can build features end to end.',
+  },
+  {
+    label: 'Goal',
+    when: 'The bigger goal',
+    title: 'Building bigger products',
+    text: 'Taking on larger, scalable products where clean code and a great user experience make a real difference.',
+  },
+];
 
 const AboutPage = () => {
   return (
@@ -33,10 +99,11 @@ const AboutPage = () => {
             <span>Hema Mogilicharla</span>
           </Link>
           <div className="about-nav-links">
-            <Link to="/#work">Work</Link>
+            <Link to="/work">Work</Link>
 
             <Link to="/about" className="active">About me</Link>
             <Link to="/resume">Resume</Link>
+            <Link to="/contact">Contact me</Link>
           </div>
         </nav>
 
@@ -45,7 +112,7 @@ const AboutPage = () => {
         </div>
 
         <div className="about-hero-content-container">
-       
+
           <div className="about-hero-text">
             <h1>
               Hi, <br />
@@ -53,8 +120,8 @@ const AboutPage = () => {
               Hema Mogilicharla
             </h1>
             <p className="hero-subtitle">
-              Currently Building Scalable interfaces and full-stack systems at{' '}
-              <span className="highlight-purple">LKR Technology</span>
+              Currently crafting clean ERP/CRM and e-commerce interfaces at{' '}
+              <span className="highlight-purple">B2Y Infy Solutions</span>
             </p>
           </div>
 
@@ -68,7 +135,44 @@ const AboutPage = () => {
         <section className="about-tagline">
           <h2 className="highlight-purple">I Thrive At The Intersection Of Product Thinking And Code Craft</h2>
           <p>~Transforming Logic Into Visual Elegance</p>
-          <button className="tag-button">Personal Story</button>
+        </section>
+
+        <section className="about-section about-story">
+          <h3>My Story</h3>
+          <p>
+            I grew up in a small village and studied agriculture, first a Diploma in Agricultural
+            Engineering and then a B.Tech in Agriculture. Somewhere along the way I realised what I
+            was truly passionate about: IT and coding.
+          </p>
+          <p>
+            So I changed direction. I joined an institute, completed a full web development course
+            and earned my certificate. Since then I have been building real products, from client
+            websites to ERP/CRM platforms.
+          </p>
+        </section>
+
+        <section className="about-section">
+          <h3>Quick Facts</h3>
+          <div className="facts-grid">
+            {quickFacts.map((fact) => (
+              <div key={fact.label} className="fact-card">
+                <span className="fact-label">{fact.label}</span>
+                <span className="fact-value">{fact.value}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="about-section">
+          <h3>From Agriculture to Code</h3>
+          <p className="about-hint">Click each step to follow my journey.</p>
+          <Stepper steps={journey} label="My journey from agriculture to code" />
+        </section>
+
+        <section className="about-section">
+          <h3>Why Frontend?</h3>
+          <p className="about-hint">Tap a card to read more.</p>
+          <ReasonCards reasons={whyFrontend} />
         </section>
 
         <section className="developer-philosophy">
@@ -87,88 +191,24 @@ const AboutPage = () => {
           </p>
         </section>
 
-        <section className="timeline-section">
-          <h3>Timeline</h3>
-          <div className="timeline-item">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <span className="tag-button date-tag">2025 – Present</span>
-              <p className="timeline-role">
-                <strong>LKR Technology</strong> - Internship
-              </p>
-              <p className="timeline-description">
-                Effectively collaborated with clients to understand their unique requirements
-                and delivered three high-performing,
-                user-centric websites with responsive designs and optimized functionality
-              </p>
-            </div>
+        <section className="about-section about-story">
+          <h3>Beyond the Code</h3>
+          <div className="philosophy-tags">
+            <span className="tag-button">Learning new things</span>
+            <span className="tag-button">Exploring new technologies</span>
+            <span className="tag-button">Solving problems</span>
           </div>
-         
-          <div className="timeline-item">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <span className="tag-button date-tag">2024 – 2025</span>
-              <p className="timeline-role">
-                <strong>Survey Heart</strong> - Internship
-              </p>
-              <p className="timeline-description">
-                Implemented key features for the Survey Heart platform, including a dynamic Sales Report with filters,
-                graphs, and platform-specific views; an interactive Community module
-                with Q&A management and sign-in restrictions; and an FAQ section with
-                admin controls for real-time category and FAQ updates
-              </p>
-            </div>
-          </div>
+          <p>
+            I am happiest when I am learning something new: a tool, a framework, or a better way to
+            solve an old problem. Moving from agriculture into tech taught me that curiosity matters
+            more than where you start.
+          </p>
         </section>
 
-        
-        <section className="skills-section">
-          <h3 className="skills-main-title">Skills + Stack Grid</h3>
-          <span className="tag-button tech-toolbox-tag">My Tech Tool Box</span>
-
-          <div className="skill-category">
-            <h4 className="skill-category-title">Frontend:</h4>
-            <div className="skills-grid">
-              <div className="skill-card"><img src={htmlLogo} alt="HTML5 Logo" /></div>
-              <div className="skill-card"><img src={cssLogo} alt="CSS3 Logo" /></div>
-              <div className="skill-card"><img src={jsLogo} alt="JavaScript Logo" /></div>
-              <div className="skill-card"><img src={reactLogo} alt="React Logo" /></div>
-              <div className="skill-card"><img src={tailwindLogo} alt="Tailwind CSS Logo" /></div>
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h4 className="skill-category-title">Backend:</h4>
-            <div className="skills-grid">
-              <div className="skill-card"><img src={nodeLogo} alt="Node.js Logo" /></div>
-              <div className="skill-card"><img src={expressLogo} alt="Express.js Logo" /></div>
-              <div className="skill-card"><img src={mongoLogo} alt="MongoDB Logo" /></div>
-                 <div className="skill-card"><img src={postman} alt="MongoDB Logo" /></div>
-            </div>
-          </div> 
-
-          <div className="skill-category">
-            <h4 className="skill-category-title">Tools & Deployment:</h4>
-            <div className="skills-grid">
-              <div className="skill-card"><img src={vercelLogo} alt="Vercel Logo" /></div>
-              <div className="skill-card"><img src={githubLogo} alt="GitHub Logo" /></div>
-              <div className="skill-card"><img src={netlifyLogo} alt="Netlify Logo" /></div>
-                <div className="skill-card"><img src={vscode} alt="Netlify Logo" /></div>
-                  <div className="skill-card"><img src={webstorm} alt="Netlify Logo" /></div>
-               
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h4 className="skill-category-title">Soft Skills:</h4>
-            <div className="soft-skills-tags">
-              <span className="tag-button">Problem Solving.</span>
-              <span className="tag-button">Collaboration</span>
-              <span className="tag-button">Adaptability</span>
-                <span className="tag-button">Critical Thinking</span>
-                  <span className="tag-button">Time Management</span>
-            </div>
-          </div>
+        <section className="about-section">
+          <h3>What’s Next</h3>
+          <p className="about-hint">Click to see where I am heading.</p>
+          <Stepper steps={whatsNext} label="My roadmap" />
         </section>
 
       </main>

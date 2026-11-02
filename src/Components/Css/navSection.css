@@ -32,8 +32,7 @@
 
 .hero-navbar {
     width: 100%;
-    max-width: 1400px;
-    padding: 1.5rem 5%;
+    padding: 1.5rem 3%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -260,6 +259,8 @@
     .hero-text-container {
         grid-column: 1 / 2;
         grid-row: 1 / 2; 
+        position: relative;
+        top: 50px; /* moves the whole text block down without changing the layout around it */
     }
 
     .hero-image-container {
@@ -284,6 +285,8 @@
         max-width: 350px;
         margin-top: -170px;
         opacity: 1;
+        position: relative;
+        left: 30px; /* nudges the line art to the right */
     }
 
     .hero-background-tagline p {
@@ -302,6 +305,7 @@
     }
     .hero-line-art {
         max-width: 400px;
+        left: 80px;
     }
     .hero-background-tagline p {
         margin: -27px;

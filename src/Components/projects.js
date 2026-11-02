@@ -3,7 +3,11 @@ import suits from "../images/suits.png";
 import lkr from "../images/LKR.png";
 import leaira from "../images/LEAIRA.png";
 import girleye from "../images/girleye.png";
+import { Link } from "react-router-dom";
 import "../Components/Css/projectSection.css";
+import { currentJob, clientProject, internalProjects } from "./workData";
+
+const currentProjects = [clientProject, ...internalProjects];
 
 
 const featuresData = [
@@ -29,27 +33,21 @@ const internData = [
     {
         "title": "The suits and salon",
         "logo": suits,
-        "description": "Developed a responsive website to showcase salon services, pricing, and visual branding.",
-        "buttonText": "Visit Live Website",
-        "link": "https://thesuitssalonspa.com/"
+        "description": "Developed a responsive website to showcase salon services, pricing, and visual branding."
     },
     {
         "title": "LKR Technology",
         "logo": lkr,
-        "description": "Built a scalable corporate website with clean code structure and efficient navigation. Focused on performance, SEO, and maintainability for long-term use.",
-        "buttonText": "Visit Live Website",
-        "link": "https://lkrtechnologies.com/"
+        "description": "Built a scalable corporate website with clean code structure and efficient navigation. Focused on performance, SEO, and maintainability for long-term use."
     },
     {
         "title": "Leaira events",
         "logo": leaira,
-        "description": "Developed a dynamic event management site with gallery, inquiry forms, and service pages.",
-        "buttonText": "Visit Live Website",
-        "link": "https://leairaevents.com/"
+        "description": "Developed a dynamic event management site with gallery, inquiry forms, and service pages."
     }
 ];
 
-const ProjectCard = ({ title, logo, description, buttonText, link }) => (
+const ProjectCard = ({ title, logo, description }) => (
     <div className="project-card">
         <div className="card-content">
             <div className="card-header">
@@ -59,9 +57,6 @@ const ProjectCard = ({ title, logo, description, buttonText, link }) => (
                 </div>
             </div>
             <p className="card-description">{description}</p>
-            <a href={link} target="_blank" rel="noopener noreferrer" className="card-button">
-                {buttonText}
-            </a>
         </div>
     </div>
 );
@@ -70,11 +65,35 @@ const ProjectSection = () => {
     return (
 
         <>
-        <main id="work">
+        <main>
+            <section className="current-work-section">
+                <div className="current-work-wrapper">
+                    <span className="current-work-tag">Currently Working</span>
+                    <div className="current-work-card">
+                        <div className="current-work-left">
+                            <h2 className="current-work-company">{currentJob.company}</h2>
+                            <p className="current-work-role">{currentJob.role}</p>
+                            <p className="current-work-period">{currentJob.period}</p>
+                            <Link to="/work" className="card-button current-work-button">
+                                View full details
+                            </Link>
+                        </div>
+                        <ul className="current-work-list">
+                            {currentProjects.map((project) => (
+                                <li key={project.title} className="current-work-item">
+                                    <h3>{project.title}</h3>
+                                    <p>{project.summary}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section className="other-projects-section">
                 <div className="other-projects-container">
                     <div className="section-header">
-                        <button className="other-projects-tag">Internship Projects</button>
+                        <span className="other-projects-tag">Experience – LKR Technology</span>
                     </div>
                     <div className="projects-grid">
                         {internData.map((project) => (
@@ -97,7 +116,7 @@ const ProjectSection = () => {
             <section className="internship-section-container">
                 <div className="internship-content-wrapper">
                     <div className="internship-tag-container">
-                        <span className="internship-tag">Internship</span>
+                        <span className="internship-tag">Experience – Survey Heart</span>
                     </div>
                     <div className="internship-card">
                         <div className="internship-card-left">

@@ -7,6 +7,9 @@ import FooterSection from "./Components/footer";
 import ScrollToTop from "./Components/scrollTop";
 import ScrollToHash from "./Components/scroll"
 import ResumeSection from "./Components/resume";
+import ContactSection from "./Components/contact";
+import WorkPage from "./Components/work";
+import Snapshot from "./Components/snapshot";
 
 function App() {
   return (
@@ -19,7 +22,8 @@ function App() {
           element={
             <>
               <HeroSection />
-              <div id="work">
+              <Snapshot />
+              <div id="projects">
                 <ProjectSection />
 
               </div>
@@ -30,6 +34,8 @@ function App() {
         />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/resume" element={<ResumeSection />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/contact" element={<ContactSection />} />
 
       </Routes>
     </Router>
